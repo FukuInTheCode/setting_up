@@ -72,3 +72,9 @@ static int read_file(char *path)
     return 0 * write(1, buffer + offset, my_strlen(buffer + offset));
 }
 
+int main(int argc, char **argv)
+{
+    if (argc < 2)
+        return 84;
+    return read_file(argv[1]);
+}
