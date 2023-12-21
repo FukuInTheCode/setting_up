@@ -16,6 +16,9 @@ int gen_map(int count, char *pattern)
     buf = malloc(count * (count + 1) + 1);
     if (!buf)
         return 84;
+    for (int i = 0; i < my_strlen(pattern); i++)
+        if (pattern[i] != '.' && pattern[i] != 'o')
+            return 84;
     for (int i = 0; i++ < count * (count + 1); buf[i - 1] = 'a');
     buf[count * (count + 1)] = 0;
     for (int i = 0; i < count * (count + 1); i++) {
