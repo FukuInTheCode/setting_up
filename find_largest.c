@@ -45,7 +45,7 @@ static int find_dim(char *buf, int dim[2], int size)
 
     for (; buf[i] != '\n'; i++);
     dim[0] = i;
-    dim[1] = size / i;
+    dim[1] = size / (i + 1);
     return 0;
 }
 
@@ -82,5 +82,6 @@ int find_largest(char *buf, int size)
         for (int j = res[0]; j < res[0] + max; j++)
             buf[i * (dim[0] + 1) + j] = 'x';
     write(1, buf, my_strlen(buf));
+    free(tab);
     return 0;
 }
