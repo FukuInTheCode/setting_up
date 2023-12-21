@@ -17,6 +17,7 @@
     #include <fcntl.h>
     #include <math.h>
     #include <stdlib.h>
+    #include <sys/stat.h>
 
     #include <criterion/criterion.h>
     #include <criterion/redirect.h>
@@ -32,5 +33,7 @@
 
 size_t my_strlen(char const *);
 int my_getnbr(char const *);
+int read_file(char const *);
+int find_largest(char *, int);
 
 #endif

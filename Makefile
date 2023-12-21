@@ -20,6 +20,8 @@ CRITERION = -lcriterion
 SRC	= settingup.c \
 		my_getnbr.c \
 		my_strlen.c \
+		handling_file.c \
+		find_largest.c \
 
 OBJ	= $(SRC:.c=.o)
 
