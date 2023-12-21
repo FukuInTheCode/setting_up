@@ -52,3 +52,23 @@ static int fill_tab(int xy[2], int dims[2], char *buf, int *tab)
     return tab[n];
 }
 
+static int read_file(char *path)
+{
+    char buffer[32001];
+    int *tab = NULL;
+    int file = open(path, O_RDONLY);
+    int offset = read(file, buffer, 32000);
+    int cols = 0;
+    int rows = my_getnbr(buffer);
+
+    for (offset = 0; buffer[offset++] != '\n';);
+    for (; buffer[offset + cols++] != '\n';);
+    cols -= 1;
+    tab = malloc(sizeof(int) * cols * rows);
+    for (int i = 0; i < cols * rows; tab[i++] = -1);
+    fill_tab((int[2]){0, 0}, (int[2]){cols, rows}, buffer + offset, tab);
+    set_largest(buffer + offset, tab, (int[2]){cols, rows});
+    free(tab);
+    return 0 * write(1, buffer + offset, my_strlen(buffer + offset));
+}
+
