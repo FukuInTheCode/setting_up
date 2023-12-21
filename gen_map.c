@@ -16,13 +16,13 @@ int gen_map(int count, char *pattern)
     buf = malloc(count * (count + 1) + 1);
     if (!buf)
         return 84;
-    for (int i = 0; i < count * (count + 1); buf[i++] = 'a');
+    for (int i = 0; i++ < count * (count + 1); buf[i - 1] = 'a');
     buf[count * (count + 1)] = 0;
     for (int i = 0; i < count * (count + 1); i++) {
         if ((i + 1) % (count + 1) == 0)
             buf[i] = '\n';
         else
-            buf[i] = pattern[(i - i / count) % my_strlen(pattern)];
+            buf[i] = pattern[(i - i / (count + 1)) % my_strlen(pattern)];
     }
     find_largest(buf, my_strlen(buf));
     free(buf);

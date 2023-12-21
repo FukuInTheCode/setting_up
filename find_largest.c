@@ -23,13 +23,20 @@ static int set_cell(int xy[2], int dim[2], int *tab, char *buf)
     int id_b = (xy[1] + 1) * dim[0] + xy[0];
     int id_rb = (xy[1] + 1) * dim[0] + xy[0] + 1;
 
-    if (xy[0] == dim[0] - 1)
-        return (tab[id] = (buf[id + xy[1]] == '.'));
-    if (xy[1] == dim[1] - 1)
-        return (tab[id] = (buf[id + xy[1]] == '.'));
-    if (buf[id + xy[1]] != '.')
-        return (tab[id] = 0);
-    return (tab[id] = find_min(tab[id_r], tab[id_b], tab[id_rb]) + 1);
+    if (xy[0] == dim[0] - 1) {
+        tab[id] = (buf[id + xy[1]] == '.');
+        return tab[id];
+    }
+    if (xy[1] == dim[1] - 1) {
+        tab[id] = (buf[id + xy[1]] == '.');
+        return tab[id];
+    }
+    if (buf[id + xy[1]] != '.') {
+        tab[id] = 0;
+        return tab[id];
+    }
+    tab[id] = find_min(tab[id_r], tab[id_b], tab[id_rb]) + 1;
+    return tab[id];
 }
 
 static int find_dim(char *buf, int dim[2], int size)

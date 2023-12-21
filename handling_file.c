@@ -14,9 +14,7 @@ static int is_valid(char *buf, int *offset2)
     int lines = my_getnbr(buf);
     int j;
 
-    if (!('0' <= *buf && *buf <= '9'))
-        return 0;
-    if (lines <= 0)
+    if (!('0' <= *buf && *buf <= '9') || lines <= 0)
         return 0;
     for (; buf[offset++] != '\n';);
     for (; buf[offset + line] != '\n'; line++);
