@@ -12,7 +12,10 @@ for file in "$maps_dir"/*; do
     ./setting_up "$file" > "output.txt"
     if ! diff -q "output.txt" "$solved_dir/$filename" > /dev/null; then
         echo "Files differ: $filename"
-        exit 1
+        rm -f ./setting_up
+        make -C../ fclean
+        rm -f "output.txt"
+        exit 84
     fi
     rm -f "output.txt"
 done
