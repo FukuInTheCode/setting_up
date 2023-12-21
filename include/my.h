@@ -35,5 +35,6 @@ size_t my_strlen(char const *);
 int my_getnbr(char const *);
 int read_file(char const *);
 int find_largest(char *, int);
+int gen_map(int, char *);
 
 #endif

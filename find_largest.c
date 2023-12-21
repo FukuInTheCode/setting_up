@@ -74,6 +74,6 @@ int find_largest(char *buf, int size)
     for (int i = res[1]; i < res[1] + max; i++)
         for (int j = res[0]; j < res[0] + max; j++)
             buf[i * (dim[0] + 1) + j] = 'x';
-    printf("%s\n", buf);
+    write(1, buf, my_strlen(buf));
     return 0;
 }

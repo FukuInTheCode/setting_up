@@ -22,6 +22,7 @@ SRC	= settingup.c \
 		my_strlen.c \
 		handling_file.c \
 		find_largest.c \
+		gen_map.c \
 
 OBJ	= $(SRC:.c=.o)
 
