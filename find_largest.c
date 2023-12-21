@@ -23,11 +23,11 @@ static int set_cell(int xy[2], int dim[2], int *tab, char *buf)
     int id_b = (xy[1] + 1) * dim[0] + xy[0];
     int id_rb = (xy[1] + 1) * dim[0] + xy[0] + 1;
 
-    if (xy[0] == dim[0] - 1) {
+    if (xy[0] >= dim[0] - 1) {
         tab[id] = (buf[id + xy[1]] == '.');
         return tab[id];
     }
-    if (xy[1] == dim[1] - 1) {
+    if (xy[1] >= dim[1] - 1) {
         tab[id] = (buf[id + xy[1]] == '.');
         return tab[id];
     }

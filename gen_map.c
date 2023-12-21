@@ -11,7 +11,7 @@ int gen_map(int count, char *pattern)
 {
     char *buf = NULL;
 
-    if (count <= 0)
+    if (count <= 0 || my_strlen(pattern) == 0)
         return 84;
     buf = malloc(count * (count + 1) + 1);
     if (!buf)
@@ -24,7 +24,7 @@ int gen_map(int count, char *pattern)
         else
             buf[i] = pattern[(i - i / (count + 1)) % my_strlen(pattern)];
     }
-    find_largest(buf, my_strlen(buf));
+    find_largest(buf, count * count);
     free(buf);
     return 0;
 }
