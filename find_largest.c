@@ -74,7 +74,6 @@ int find_largest(char *buf, int size)
     if (!tab)
         return 84;
     find_dim(buf, dim, size);
-    printf("%d | %d\n", dim[0], dim[1]);
     for (int i = dim[1] - 1; i >= 0; i--)
         for (int j = dim[0] - 1; j >= 0; j--)
             set_cell((int [2]){j, i}, dim, tab, buf);
